@@ -2,29 +2,85 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
 
   "extends": [
-    "config:recommended"
+    "config:recommended",
+    ":dependencyDashboard",
+    ":semanticCommits"
   ],
 
   "timezone": "Asia/Kolkata",
 
+  "schedule": [
+    "before 5am every day"
+  ],
+
   "prConcurrentLimit": 5,
 
-  "labels": ["dependencies", "security"],
+  "labels": [
+    "dependencies",
+    "security"
+  ],
 
   "dependencyDashboard": true,
 
+  "docker": {
+    "enabled": true
+  },
+
+  "vulnerabilityAlerts": {
+    "enabled": true
+  },
+
+  "osvVulnerabilityAlerts": true,
+
+  "rangeStrategy": "bump",
+
+  "rebaseWhen": "behind-base-branch",
+
   "packageRules": [
     {
-      "matchUpdateTypes": ["patch"],
-      "automerge": true
+      "description": "Auto merge patch updates",
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "automerge": true,
+      "automergeType": "pr"
     },
     {
-      "matchUpdateTypes": ["minor"],
+      "description": "Do not auto merge minor updates",
+      "matchUpdateTypes": [
+        "minor"
+      ],
       "automerge": false
     },
     {
-      "matchUpdateTypes": ["major"],
+      "description": "Do not auto merge major updates",
+      "matchUpdateTypes": [
+        "major"
+      ],
       "automerge": false
+    },
+    {
+      "description": "Prioritize vulnerable dependencies",
+      "matchManagers": [
+        "npm",
+        "dockerfile",
+        "maven",
+        "gradle",
+        "composer",
+        "pip_requirements",
+        "github-actions",
+        "terraform"
+      ],
+      "vulnerabilityAlerts": true,
+      "prPriority": 10
+    },
+    {
+      "description": "Group non-major updates",
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "all non-major dependencies"
     }
   ]
 }
