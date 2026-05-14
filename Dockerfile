@@ -1,7 +1,7 @@
 # =========================
 # Build stage
 # =========================
-FROM node:22-alpine3.20 AS builder
+FROM node:16-alpine3.16 AS builder
 
 RUN apk update && apk upgrade --no-cache && \
     apk upgrade libcrypto3 && \
@@ -33,7 +33,7 @@ RUN npm run build
 # =========================
 # Runtime stage
 # =========================
-FROM node:22-alpine3.20
+FROM node:16-alpine3.16
 
 RUN apk update && apk upgrade --no-cache && \
     apk upgrade libcrypto3 && \
