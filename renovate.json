@@ -13,7 +13,7 @@
     "before 5am every day"
   ],
 
-  "prConcurrentLimit": 5,
+  "prConcurrentLimit": 10,
 
   "labels": [
     "dependencies",
