@@ -1,7 +1,8 @@
 # =========================
 # Build stage
 # =========================
-FROM node:16-alpine3.16 AS builder
+FROM node:14-alpine3.14 AS builder
+
 
 RUN apk update && apk upgrade --no-cache && \
     apk upgrade libcrypto3 && \
@@ -29,25 +30,3 @@ RUN rm -f .npmrc
 COPY . .
 
 RUN npm run build
-
-# =========================
-# Runtime stage
-# =========================
-FROM node:16-alpine3.16
-
-RUN apk update && apk upgrade --no-cache && \
-    apk upgrade libcrypto3 && \
-    apk upgrade libssl3 && \
-    apk upgrade busybox && \
-    apk upgrade zlib
-
-WORKDIR /home/node/app
-
-COPY --from=builder /home/node/app /home/node/app
-
-# Remove npm CLI to avoid npm internal CVEs
-RUN rm -rf /usr/local/lib/node_modules/npm
-
-EXPOSE 3000
-
-CMD ["node", "app.js"]
