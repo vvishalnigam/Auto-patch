@@ -22,7 +22,7 @@
     "dotenv-webpack": "^6.0.0",
     "eslint": "^7.32.0",
     "eslint-loader": "^4.0.2",
-    "express": "^4.19.2",
+    "express": "^4.22.2",
     "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^6.0.8",
     "fs": "0.0.1-security",
