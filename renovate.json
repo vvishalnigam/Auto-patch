@@ -5,8 +5,6 @@
     "config:recommended"
   ],
 
-  "schedule": ["before 5am on monday"],
-
   "timezone": "Asia/Kolkata",
 
   "prConcurrentLimit": 5,
