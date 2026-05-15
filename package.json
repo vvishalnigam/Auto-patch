@@ -27,7 +27,7 @@
     "fork-ts-checker-webpack-plugin": "^6.0.8",
     "fs": "0.0.1-security",
     "html-webpack-plugin": "^5.6.0",
-    "http-errors": "~1.6.3",
+    "http-errors": "~2.0.0",
     "https-browserify": "^1.0.0",
     "jest": "^29.7.0",
     "jest-openapi": "^0.14.0",
