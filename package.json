@@ -100,7 +100,7 @@
     "fast-xml-parser": "^5.7.0",
     "flatted": "^3.4.2",
     "follow-redirects": "^1.16.0",
-    "helmet": "^4.6.0",
+    "helmet": "^8.0.0",
     "i18n": "^0.15.0",
     "immutable": "^5.1.5",
     "js-yaml": "^4.1.1",
