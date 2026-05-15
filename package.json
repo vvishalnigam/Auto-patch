@@ -130,7 +130,7 @@
   },
   "overrides": {
     "semver": "^7.7.2",
-    "messageformat": "3.0.0-beta.2",
+    "messageformat": "4.0.0",
     "qs": "^6.14.2",
     "fast-xml-parser": "^5.7.0",
     "minimatch": "^10.2.4",
